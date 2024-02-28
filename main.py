@@ -4,13 +4,10 @@ import sqlite3
 def start():
     conn = sqlite3.connect('database.db')
 
-    # Создание курсора для выполнения SQL-запросов
     cursor = conn.cursor()
 
-    # Название таблицы, которую вы хотите проверить
     table_name = 'my_table'
 
-    # SQL-запрос для проверки существования таблицы
     check_table_query = f"SELECT name FROM sqlite_master WHERE type='table' AND name='{table_name}'"
 
     # Выполнение SQL-запроса
@@ -22,7 +19,6 @@ def start():
     if result:
         pass
     else:
-        # SQL-запрос для создания таблицы
         create_table_query = '''
             CREATE TABLE IF NOT EXISTS my_table (
                 id INTEGER PRIMARY KEY,
@@ -30,14 +26,13 @@ def start():
             );
             '''
 
-        # Выполнение SQL-запроса для создания таблицы
         cursor.execute(create_table_query)
 
         # Пример данных для вставки
         data_to_insert = [
             (1, 'Свитшот ИОМ'),
             (2, 'Майка ИОМ'),
-            (3, 'Фредди фазбер'),
+            (3, '1000 рублей'),
             # Добавьте здесь нужные данные для вставки
         ]
 
