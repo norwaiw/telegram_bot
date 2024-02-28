@@ -25,7 +25,7 @@ def handle_message(message):
         number = int(message.text)
 
         # Проверяем, что число находится в диапазоне от 1 до 10
-        if 1 <= number <= 3:  # Замените на нужный диапазон
+        if 1 <= number <= 4:  # Замените на нужный диапазон
             # Получение ответа из базы данных по заданному числу
             answer = get_answer_by_number(number)
 
@@ -34,6 +34,6 @@ def handle_message(message):
             else:
                 bot.reply_to(message, "Данные не найдены для этого числа.")
         else:
-            bot.reply_to(message, "Пожалуйста, введите число от 1 до 3.")  # Измените на нужный диапазон
+            bot.reply_to(message, "Пожалуйста, введите число от 1 до 4.")  # Измените на нужный диапазон
     except ValueError:
-        bot.reply_to(message, "Пожалуйста, введите числовое значение от 1 до 3.")
+        bot.reply_to(message, "Пожалуйста, введите числовое значение от 1 до 4.")
